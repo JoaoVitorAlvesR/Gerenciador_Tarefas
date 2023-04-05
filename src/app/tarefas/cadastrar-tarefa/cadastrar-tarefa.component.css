@@ -1,0 +1,31 @@
+.titulo{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin:10px
+}
+
+.barra{
+    padding:10px
+}
+
+.subtitulo{
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+    width: max-content;
+   
+}
+
+.cadastrar{
+    background-color:#1aae07;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.voltar{
+    background-color: black;
+}
+
+
+
+

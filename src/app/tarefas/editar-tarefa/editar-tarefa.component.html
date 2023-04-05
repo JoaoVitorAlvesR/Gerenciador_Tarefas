@@ -1,0 +1,41 @@
+<h1>Editar tarefa</h1>
+
+<div>
+  <form #formTarefa="ngForm">
+    <div class="barra">
+      <label for="nome">Tarefa:</label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        [(ngModel)]="tarefa.nome"
+        #nome="ngModel"
+        minlength="5"
+        required
+      />
+      <div *ngIf="nome.errors && (nome.dirty || nome.touched)">
+        <div [hidden]="!nome.errors.required">Digite a tarefa.</div>
+        <div [hidden]="!nome.errors.minlength">
+          A tarefa deve conter ao menos 5 caracteres.
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        [routerLink]="['/tarefas']"
+        type="submit"
+        (click)="atualizar()"
+        value="Atualizar"
+        class="cadastrar"
+        [disabled]="!formTarefa.form.valid"
+        mat-button
+      >
+        Atualizar
+      </button>
+
+      <button class="voltar" mat-flat-button [routerLink]="['/tarefas/listar']">
+        Voltar
+      </button>
+    </div>
+  </form>
+</div>

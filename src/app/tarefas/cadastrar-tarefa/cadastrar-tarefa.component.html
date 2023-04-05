@@ -1,0 +1,37 @@
+<h1 class="titulo">Cadastrar tarefa</h1>
+<form #formTarefa="ngForm">
+  <div class="barra">
+    <label class="subtitulo" for="nome">Tarefa:</label>
+    <input
+      type="text"
+      id="nome"
+      name="nome"
+      minlength="5"
+      [(ngModel)]="tarefa.nome"
+      #nome="ngModel"
+      required
+    />
+    <div *ngIf="nome.errors && (nome.dirty || nome.touched)">
+      <div [hidden]="!nome.errors.required">Digite a tarefa.</div>
+      <div [hidden]="!nome.errors.minlength">
+        A tarefa deve conter ao menos 5 caracteres.
+      </div>
+    </div>
+  </div>
+  <div>
+    <button
+      type="submit"
+      (click)="cadastrar()"
+      value="Cadastrar"
+      class="cadastrar"
+      [disabled]="!formTarefa.form.valid"
+      mat-button
+    >
+      Cadastrar
+    </button>
+
+    <button class="voltar" mat-flat-button [routerLink]="['/tarefas/listar']">
+      Voltar
+    </button>
+  </div>
+</form>
